@@ -8,40 +8,39 @@ This package supports most Unix-based operating systems. It should work fine
 on MacOS.
 
 Usage
+	package main
 
-package main
+	import (
+		"fmt"
 
-import (
-	"fmt"
+		"github.com/mdm-code/xdg"
+	)
 
-	"github.com/mdm-code/xdg"
-)
+	func main() {
+		// XDG base directory paths.
+		dirs := []struct {
+			msg string
+			f   func() string
+		}{
+			{"Home data directory: ", xdg.DataHomeDir},
+			{"Config home directory: ", xdg.CacheHomeDir},
+			{"State home directory: ", xdg.StateHomeDir},
+			{"Data directories: ", xdg.DataDirs},
+			{"Config directories: ", xdg.ConfigDirs},
+			{"Cache home directory: ", xdg.CacheHomeDir},
+			{"Runtime home directory: ", xdg.RuntimeDir},
+		}
+		for _, d := range dirs {
+			fmt.Println(d.msg, d.f())
+		}
 
-func main() {
-	// XDG base directory paths.
-	dirs := []struct {
-		msg string
-		f   func() string
-	}{
-		{"Home data directory: ", xdg.DataHomeDir},
-		{"Config home directory: ", xdg.CacheHomeDir},
-		{"State home directory: ", xdg.StateHomeDir},
-		{"Data directories: ", xdg.DataDirs},
-		{"Config directories: ", xdg.ConfigDirs},
-		{"Cache home directory: ", xdg.CacheHomeDir},
-		{"Runtime home directory: ", xdg.RuntimeDir},
+		// Search for file in data XDG directories.
+		fpath := "/prog/file"
+		if f, ok := xdg.Find(xdg.Data, fpath); ok {
+			fmt.Println(f)
+		} else {
+			fmt.Printf("ERROR: couldn't find %s\n", fpath)
+		}
 	}
-	for _, d := range dirs {
-		fmt.Println(d.msg, d.f())
-	}
-
-	// Search for file in data XDG directories.
-	fpath := "/prog/file"
-	if f, ok := xdg.Find(xdg.Data, fpath); ok {
-		fmt.Println(f)
-	} else {
-		fmt.Printf("ERROR: couldn't find %s\n", fpath)
-	}
-}
 */
 package xdg
