@@ -1,6 +1,10 @@
 # XDG package
 
-![(logo)](./logo.png)
+<h1 align="center">
+  <div>
+    <img src="https://raw.githubusercontent.com/mdm-code/mdm-code.github.io/main/xdg_logo.png" alt="logo"/>
+  </div>
+</h1>
 
 <h4 align="center">The XDG Base Directory Specification implemented in Go.</h4>
 
@@ -32,7 +36,6 @@ go get github.com/mdm-code/xdg
 
 The table shows default values for XDG environmental variables for Unix-like systems:
 
-| <a href="#default-locations"><img width="900" height="0"></a> | <a href="#default-locations"><img width="1100" height="0"></a><p>Unix-like</p>  |
 | :------------------------------------------------------------: | :----------------------------------------------------------------------------: |
 | <kbd><b>XDG_DATA_HOME</b></kbd>                                | <kbd>$HOME/.local/share</kbd>                                                  |
 | <kbd><b>XDG_CONFIG_HOME</b></kbd>                              | <kbd>$HOME/.config</kbd>                                                       |
