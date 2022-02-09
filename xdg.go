@@ -28,31 +28,6 @@ const (
 	runtimeDir env = "XDG_RUNTIME_DIR"
 )
 
-var (
-	// A single base directory relative to which user-specific files should
-	// be written. Default: $HOME/.local/share.
-	DataHomeDir func() string = dynamic(dataHome, joinHome(".local/share"))
-	// A single base directory relative to which user-specific configuration
-	// files should be written. Default: $HOME/.config.
-	ConfigHomeDir func() string = dynamic(configHome, joinHome(".config"))
-	// A single base directory relative to which user-specific state data
-	// should be written. Default: $HOME/.local/state.
-	StateHomeDir func() string = dynamic(stateHome, joinHome(".local/state"))
-	// A set of preference-ordered base directories relative to which data
-	// files should be searched. Default: /usr/local/share/:/usr/share/.
-	DataDirs func() string = dynamic(dataDirs, "/usr/local/share/:/usr/share/")
-	// A set of preference-ordered base directories relative to which
-	// configuration files should be searched. Default: /etc/xdg.
-	ConfigDirs func() string = dynamic(configDirs, "/etc/xdg")
-	// A single base directory relative to which user-specific, non-essential
-	// (cached) data should be written. Default: $HOME/.cache.
-	CacheHomeDir func() string = dynamic(cacheHome, joinHome(".cache"))
-	// A single base directory relative to which user-specific, runtime files
-	// and other file objects should be placed. It defaults to $TMPDIR on Unix
-	// if non-empty else /tmp.
-	RuntimeDir func() string = dynamic(runtimeDir, os.TempDir())
-)
-
 // XDG base directory type.
 type dir uint8
 
@@ -107,13 +82,47 @@ func (p path) split() []path {
 	return result
 }
 
-// dynamic evaluates the value of an XDG environmental variable each time it is
-// called. This makes sure that value changes accordingly when its altered in the
-// parent shell.
-func dynamic(key env, fallback string) func() string {
-	return func() string {
-		return valueOf(key, fallback)
-	}
+// A single base directory relative to which user-specific files should
+// be written. Default: $HOME/.local/share.
+func DataHomeDir() string {
+	return valueOf(dataHome, joinHome(".local/share"))
+}
+
+// A single base directory relative to which user-specific configuration
+// files should be written. Default: $HOME/.config.
+func ConfigHomeDir() string {
+	return valueOf(configHome, joinHome(".config"))
+}
+
+// A single base directory relative to which user-specific state data
+// should be written. Default: $HOME/.local/state.
+func StateHomeDir() string {
+	return valueOf(stateHome, joinHome(".local/state"))
+}
+
+// A set of preference-ordered base directories relative to which data
+// files should be searched. Default: /usr/local/share/:/usr/share/.
+func DataDirs() string {
+	return valueOf(dataDirs, "/usr/local/share/:/usr/share/")
+}
+
+// A set of preference-ordered base directories relative to which
+// configuration files should be searched. Default: /etc/xdg.
+func ConfigDirs() string {
+	return valueOf(configDirs, "/etc/xdg")
+}
+
+// A single base directory relative to which user-specific, non-essential
+// (cached) data should be written. Default: $HOME/.cache.
+func CacheHomeDir() string {
+	return valueOf(cacheHome, joinHome(".cache"))
+}
+
+// A single base directory relative to which user-specific, runtime files
+// and other file objects should be placed. It defaults to $TMPDIR on Unix
+// if non-empty else /tmp.
+func RuntimeDir() string {
+	return valueOf(runtimeDir, os.TempDir())
 }
 
 // isAbsolute verifies if a path is absolute, not a relative one. XDG Base
