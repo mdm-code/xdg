@@ -8,11 +8,19 @@
 
 <h4 align="center">The XDG Base Directory Specification implemented in Go.</h4>
 
+<!-- TODO (michal): Add badges: CI / code coverage / documentation reference -->
+<div align="center"><p>
+    <a href="https://opensource.org/licenses/MIT" rel="nofollow">
+        <img alt="MIT license" src="https://img.shields.io/github/license/mdm-code/xdg">
+    </a>
+	<a href="https://goreportcard.com/report/github.com/mdm-code/xdg">
+        <img alt="Go report card" src="https://goreportcard.com/badge/github.com/mdm-code/xdg">
+    </a>
+</p>
+</div>
 
-<!-- TODO (michal): Add badges -->
-
-
-The XDG Base Directory Specification (LINK) allows you specify directories where
+The [XDG Base Directory Specification](https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html
+)  allows you specify directories where
 runtime files, configurations, data and caches are kept. The file discovery
 process is automatic and adheres to the XDG standard.
 
@@ -36,11 +44,12 @@ go get github.com/mdm-code/xdg
 
 The table shows default values for XDG environmental variables for Unix-like systems:
 
+| <a href="#default-locations"><img width="1000" height="0"></a> | <a href="#default-locations"><img width="1000" height="0"></a><p>Unix-like</p> |
 | :------------------------------------------------------------: | :----------------------------------------------------------------------------: |
 | <kbd><b>XDG_DATA_HOME</b></kbd>                                | <kbd>$HOME/.local/share</kbd>                                                  |
 | <kbd><b>XDG_CONFIG_HOME</b></kbd>                              | <kbd>$HOME/.config</kbd>                                                       |
 | <kbd><b>XDG_STATE_HOME</b></kbd>                               | <kbd>$HOME/.local/state</kbd>                                                  |
-| <kbd><b>XDG_DATA_DIRS</b></kbd>                                | <kbd>/usr/local/share/:/usr/share/</kbd><br/><kbd>/usr/share</kbd>             |
+| <kbd><b>XDG_DATA_DIRS</b></kbd>                                | <kbd>/usr/local/share/:/usr/share/</kbd>                                       |
 | <kbd><b>XDG_CONFIG_DIRS</b></kbd>                              | <kbd>/etc/xdg</kbd>                                                            |
 | <kbd><b>XDG_CACHE_HOME</b></kbd>                               | <kbd>$HOME/.cache</kbd>                                                        |
 | <kbd><b>XDG_RUNTIME_DIR</b></kbd>                              | <kbd>$TMPDIR</kbd>                                                             |
