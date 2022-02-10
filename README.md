@@ -17,10 +17,10 @@
     <a href="https://opensource.org/licenses/MIT" rel="nofollow">
         <img alt="MIT license" src="https://img.shields.io/github/license/mdm-code/xdg">
     </a>
-	<a href="https://goreportcard.com/report/github.com/mdm-code/xdg">
+    <a href="https://goreportcard.com/report/github.com/mdm-code/xdg">
         <img alt="Go report card" src="https://goreportcard.com/badge/github.com/mdm-code/xdg">
     </a>
-	<a href="https://pkg.go.dev/github.com/mdm-code/xdg">
+    <a href="https://pkg.go.dev/github.com/mdm-code/xdg">
         <img alt="Go package docs" src="https://img.shields.io/badge/go.dev-reference-007d9c?logo=go&logoColor=white">
     </a>
 </p>
