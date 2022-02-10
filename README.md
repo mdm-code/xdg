@@ -1,5 +1,3 @@
-# XDG package
-
 <h1 align="center">
   <div>
     <img src="https://raw.githubusercontent.com/mdm-code/mdm-code.github.io/main/xdg_logo.png" alt="logo"/>
@@ -8,13 +6,22 @@
 
 <h4 align="center">The XDG Base Directory Specification implemented in Go.</h4>
 
-<!-- TODO (michal): Add badges: CI / code coverage / documentation reference -->
-<div align="center"><p>
+<div align="center">
+<p>
+    <a href="https://github.com/mdm-code/xdg/actions?query=workflow%3ACI">
+        <img alt="Build status" src="https://github.com/mdm-code/xdg/workflows/CI/badge.svg">
+    </a>
+    <a href="https://app.codecov.io/gh/mdm-code/xdg">
+        <img alt="Code coverage" src="https://codecov.io/gh/mdm-code/xdg/branch/main/graphs/badge.svg?branch=main">
+    </a>
     <a href="https://opensource.org/licenses/MIT" rel="nofollow">
         <img alt="MIT license" src="https://img.shields.io/github/license/mdm-code/xdg">
     </a>
 	<a href="https://goreportcard.com/report/github.com/mdm-code/xdg">
         <img alt="Go report card" src="https://goreportcard.com/badge/github.com/mdm-code/xdg">
+    </a>
+	<a href="https://pkg.go.dev/github.com/mdm-code/xdg">
+        <img alt="Go package docs" src="https://img.shields.io/badge/go.dev-reference-007d9c?logo=go&logoColor=white">
     </a>
 </p>
 </div>
@@ -99,8 +106,15 @@ func main() {
 
 ## Development
 
-Consult `Makefile` to see how to format, examine code with `go vet`, run unit test,
-get test coverage and check if the package builds all right.
+Consult `Makefile` to see how to format, examine code with `go vet`, run unit
+test, run code linter with `golint` get test coverage and check if the package
+builds all right.
+
+Remember to install `golint` before you try to run tests and test the build:
+
+```go
+go get -u golang.org/x/lint/golint
+```
 
 
 ## License
