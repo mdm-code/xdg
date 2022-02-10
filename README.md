@@ -112,7 +112,7 @@ builds all right.
 
 Remember to install `golint` before you try to run tests and test the build:
 
-```go
+```sh
 go get -u golang.org/x/lint/golint
 ```
 

@@ -20,8 +20,12 @@ jobs:
       with:
         go-version: ${{ matrix.go-version }}
 
+    - name: Make missing dirs
+      run: |
+        mkdir -p ~/.local/state
+
     - name: Checkout
-    - uses: actions/checkout@v2
+      uses: actions/checkout@v2
 
     - name: Install dependencies
       run: |
