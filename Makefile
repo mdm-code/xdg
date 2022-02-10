@@ -3,7 +3,7 @@ GOFLAGS=-race
 DEV_BIN=bin
 COV_PROFILE=cp.out
 
-.DEFAULT_GOAL := test
+.DEFAULT_GOAL := build
 
 .PHONY: fmt
 fmt:
@@ -13,8 +13,12 @@ fmt:
 vet: fmt
 	$(GO) vet ./...
 
+.PHONY: lint
+lint: vet
+	golint -set_exit_status=1 ./...
+
 .PHONY: test
-test: vet
+test: lint
 	$(GO) clean -testcache
 	$(GO) test ./... -v
 
@@ -23,12 +27,12 @@ install: test
 	$(GO) install ./...
 
 .PHONY: build
-build:
+build: test
 	$(GO) build github.com/mdm-code/xdg/...
 
 .PHONY: cover
 cover:
-	$(GO) test -coverprofile=$(COV_PROFILE) ./...
+	$(GO) test -coverprofile=$(COV_PROFILE) -covermode=atomic ./...
 	$(GO) tool cover -html=$(COV_PROFILE)
 
 .PHONY: clean
