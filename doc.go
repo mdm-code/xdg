@@ -1,7 +1,8 @@
 /*
-The XDG Base Directory Specification states where specification files should
-be searched. It does so by defining base directories relative to which files
-are located. The details of the specification are laid out here:
+Package xdg implements the XDG Base Directory Specification in Go. The
+specification states where specification files should be searched. It does so
+by defining base directories relative to which files are located. The details
+of the specification are laid out here:
 https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html
 
 This package supports most Unix-based operating systems. It should work fine

@@ -82,45 +82,46 @@ func (p path) split() []path {
 	return result
 }
 
-// A single base directory relative to which user-specific files should
-// be written. Default: $HOME/.local/share.
+// DataHomeDir returns a single base directory relative to which user-specific
+// files should be written. Default: $HOME/.local/share.
 func DataHomeDir() string {
 	return valueOf(dataHome, joinHome(".local/share"))
 }
 
-// A single base directory relative to which user-specific configuration
-// files should be written. Default: $HOME/.config.
+// ConfigHomeDir returns a single base directory relative to which
+// user-specific configuration files should be written. Default: $HOME/.config.
 func ConfigHomeDir() string {
 	return valueOf(configHome, joinHome(".config"))
 }
 
-// A single base directory relative to which user-specific state data
-// should be written. Default: $HOME/.local/state.
+// StateHomeDir returns a single base directory relative to which user-specific
+// state data should be written. Default: $HOME/.local/state.
 func StateHomeDir() string {
 	return valueOf(stateHome, joinHome(".local/state"))
 }
 
-// A set of preference-ordered base directories relative to which data
-// files should be searched. Default: /usr/local/share/:/usr/share/.
+// DataDirs returns a set of preference-ordered base directories relative to
+// which data files should be searched. Default: /usr/local/share/:/usr/share/.
 func DataDirs() string {
 	return valueOf(dataDirs, "/usr/local/share/:/usr/share/")
 }
 
-// A set of preference-ordered base directories relative to which
-// configuration files should be searched. Default: /etc/xdg.
+// ConfigDirs returns a set of preference-ordered base directories relative to
+// which configuration files should be searched. Default: /etc/xdg.
 func ConfigDirs() string {
 	return valueOf(configDirs, "/etc/xdg")
 }
 
-// A single base directory relative to which user-specific, non-essential
-// (cached) data should be written. Default: $HOME/.cache.
+// CacheHomeDir returns a single base directory relative to which
+// user-specific, non-essential (cached) data should be written. Default:
+// $HOME/.cache.
 func CacheHomeDir() string {
 	return valueOf(cacheHome, joinHome(".cache"))
 }
 
-// A single base directory relative to which user-specific, runtime files
-// and other file objects should be placed. It defaults to $TMPDIR on Unix
-// if non-empty else /tmp.
+// RuntimeDir returns a single base directory relative to which user-specific,
+// runtime files and other file objects should be placed. It defaults to
+// $TMPDIR on Unix if non-empty else /tmp.
 func RuntimeDir() string {
 	return valueOf(runtimeDir, os.TempDir())
 }
@@ -201,8 +202,8 @@ func mapJoin(paths []path, s string, j joiner) []path {
 	return result
 }
 
-// Finds searches for a given path in specified XDG directories. It returns an empty
-// string and false if the path is not found.
+// Find searches for a given path in specified XDG directories. It returns an
+// empty string and false if the path is not found.
 func Find(d dir, path string) (result string, ok bool) {
 	switch d {
 	case Data:
