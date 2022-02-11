@@ -36,7 +36,7 @@ Usage
 		}
 
 		// Search for file in data XDG directories.
-		fpath := "/prog/file"
+		fpath := "program/file.data"
 		if f, ok := xdg.Find(xdg.Data, fpath); ok {
 			fmt.Println(f)
 		} else {
