@@ -5,38 +5,38 @@ COV_PROFILE=cp.out
 
 .DEFAULT_GOAL := build
 
-.PHONY: fmt
 fmt:
 	$(GO) fmt ./...
+.PHONY: fmt
 
-.PHONY: vet
 vet: fmt
 	$(GO) vet ./...
+.PHONY: vet
 
-.PHONY: lint
 lint: vet
 	golint -set_exit_status=1 ./...
+.PHONY: lint
 
-.PHONY: test
 test: lint
 	$(GO) clean -testcache
 	$(GO) test ./... -v
+.PHONY: test
 
-.PHONY: install
 install: test
 	$(GO) install ./...
+.PHONY: install
 
-.PHONY: build
 build: test
-	$(GO) build github.com/mdm-code/xdg/...
+	$(GO) build $(GOFLAGS) github.com/mdm-code/xdg/...
+.PHONY: build
 
-.PHONY: cover
 cover:
 	$(GO) test -coverprofile=$(COV_PROFILE) -covermode=atomic ./...
 	$(GO) tool cover -html=$(COV_PROFILE)
+.PHONY: cover
 
-.PHONY: clean
 clean:
 	$(GO) clean github.com/mdm-code/xdg/...
 	$(GO) clean -testcache
 	rm -f $(COV_PROFILE)
+.PHONY: clean
