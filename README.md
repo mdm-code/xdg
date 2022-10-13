@@ -106,9 +106,9 @@ func main() {
 
 ## Development
 
-Consult `Makefile` to see how to format, examine code with `go vet`, run unit
-test, run code linter with `golint` get test coverage and check if the package
-builds all right.
+Consult [Makefile](Makefile) to see how to format, examine code with `go vet`,
+run unit test, run code linter with `golint` get test coverage and check if the
+package builds all right.
 
 Remember to install `golint` before you try to run tests and test the build:
 
