@@ -119,7 +119,7 @@ go install golang.org/x/lint/golint@latest
 
 ## License
 
-Copyright (c) 2022 Michał Adamczyk.
+Copyright (c) 2023 Michał Adamczyk.
 
 This project is licensed under the [MIT license](https://opensource.org/licenses/MIT).
 See [LICENSE](LICENSE) for more details.
